@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>View</title>
+
+    <script src="../lib/resolver.js"></script>
+    <script src="../locales/keys.js"></script>
+
+    <script>
+      const len = keys.length;
+
+      var target;
+      var begin;
+      var counter;
+
+      function receive(evt) {
+        target.textContent = format(evt.data);
+        if (--counter === 0) {
+          stop();
+        }
+      }
+
+      function get(key) {
+        window.parent.postMessage(key, '*');
+      }
+
+      function start() {
+        target = document.getElementById('target');
+        counter = len;
+        begin = performance.now();
+        for (var i = 0; i < len; i++) {
+          get(keys[i]);
+        }
+      }
+
+      function stop() {
+        var end = performance.now();
+        var p = document.createElement('p');
+        p.textContent = end - begin;
+        document.body.appendChild(p);
+      }
+
+      window.addEventListener('message', receive);
+
+    </script>
+  </head>
+
+  <body>
+    <button onclick="start()">start</button>
+    <p id="target"></p>
+  </body>
+</html>

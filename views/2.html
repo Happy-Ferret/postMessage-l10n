@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>View</title>
+
+    <script src="../lib/resolver.js"></script>
+    <script src="../locales/keys.js"></script>
+
+    <script>
+      const len = keys.length;
+
+      var target;
+      var begin;
+
+      var entries;
+
+      function receive(evt) {
+        entries = evt.data;
+        for (var i = 0; i < len; i++) {
+          target.textContent = format(entries[keys[i]]);
+        }
+        stop();
+      }
+
+      function get() {
+        window.parent.postMessage('get all', '*');
+      }
+
+      function start() {
+        target = document.getElementById('target');
+        begin = performance.now();
+        get();
+      }
+
+      function stop() {
+        var end = performance.now();
+        var p = document.createElement('p');
+        p.textContent = end - begin;
+        document.body.appendChild(p);
+      }
+
+      window.addEventListener('message', receive);
+
+    </script>
+  </head>
+
+  <body>
+    <button onclick="start()">start</button>
+    <p id="target"></p>
+  </body>
+</html>

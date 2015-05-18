@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>postMessage</title>
+
+    <script src="locales/entries.js"></script>
+
+    <script>
+
+      function receive(evt) {
+        var entry = entries[evt.data];
+        evt.source.postMessage(entry, '*');
+      }
+
+      window.addEventListener('message', receive);
+
+    </script>
+  </head>
+
+  <body>
+    <p>Send each entry individually</p>
+    <iframe height="500" src="views/1.html"/>
+  </body>
+</html>
