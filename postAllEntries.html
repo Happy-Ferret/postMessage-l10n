@@ -8,8 +8,7 @@
     <script>
 
       function receive(evt) {
-        var entry = entries[evt.data];
-        evt.source.postMessage(entry, '*');
+        evt.source.postMessage(entries, '*');
       }
 
       window.addEventListener('message', receive);
@@ -18,7 +17,7 @@
   </head>
 
   <body>
-    <p>Send each entry individually</p>
-    <iframe height="500" src="views/1.html"/>
+    <p>Send all entries at once</p>
+    <iframe height="500" src="views/postAllEntries.html"/>
   </body>
 </html>

@@ -3,12 +3,12 @@
     <meta charset="utf-8">
     <title>postMessage</title>
 
-    <script src="locales/entries.js"></script>
+    <script src="locales/ast.js"></script>
 
     <script>
 
       function receive(evt) {
-        evt.source.postMessage(entries, '*');
+        evt.source.postMessage(ast, '*');
       }
 
       window.addEventListener('message', receive);
@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <p>Send all entries at once</p>
-    <iframe height="500" src="views/2.html"/>
+    <p>Send AST once</p>
+    <iframe height="500" src="views/postAST.html"/>
   </body>
 </html>
