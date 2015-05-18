@@ -17,7 +17,7 @@
       delete window.ast;
 
       function receive(evt) {
-        var entry = window.envEntries[evt.data];
+        var entry = window.envEntries[evt.data.id];
         evt.source.postMessage(entry, '*');
       }
 

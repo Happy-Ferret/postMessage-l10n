@@ -14,14 +14,14 @@
       var counter;
 
       function receive(evt) {
-        target.textContent = format(evt.data);
+        target.textContent = format(evt.data).value;
         if (--counter === 0) {
           stop();
         }
       }
 
       function get(key) {
-        window.parent.postMessage(key, '*');
+        window.parent.postMessage({id: key, args: null}, '*');
       }
 
       function start() {

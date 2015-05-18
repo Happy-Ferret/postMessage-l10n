@@ -21,7 +21,7 @@
           window.viewEntries[node.$i] = createEntry(node, 'en-US', 'app');
         }
         for (var i = 0; i < len; i++) {
-          target.textContent = format(window.viewEntries[keys[i]]);
+          target.textContent = format(window.viewEntries[keys[i]]).value;
         }
         stop();
       }
