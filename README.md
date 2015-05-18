@@ -4,25 +4,8 @@ postMessage performance
 A collection of performance tests for using `window.postMessage` in the next 
 iteration of the l20n.js API.
 
-##postFormattedEntity
+See https://stasm.github.io/postMessage-l10n for more information.
 
-Entries are created in the parent.  The view asks for an resolved entity which 
-is formatted in the parent.
-
-##postEachEntry
-
-Entries are created in the parent.  The view asks for each entry individually.
-
-##postAllEntries
-
-Entries are created in the parent.  The view asks once for all entries and 
-stores them locally.
-
-##postAST
-
-Only the raw AST is stored in the parent.  The view asks once for the AST and 
-creates entries out of it.
-
-See screenshots in [profiles/][] for example output.
+Example output can be found in [profiles/][].
 
 [profiles/]: https://github.com/stasm/postMessage-l10n/tree/master/profiles
