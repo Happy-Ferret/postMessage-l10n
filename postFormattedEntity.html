@@ -3,13 +3,19 @@
     <meta charset="utf-8">
     <title>postFormattedEntity</title>
 
-    <script src="locales/entries.js"></script>
+    <script src="locales/ast.js"></script>
+    <script src="lib/entry.js"></script>
     <script src="lib/resolver.js"></script>
 
     <script>
 
+      window.envEntries = Object.create(null);
+      for (var i = 0, node; node = ast[i]; i++) {
+        window.envEntries[node.$i] = createEntry(node, 'en-US', 'app');
+      }
+
       function receive(evt) {
-        var formatted = format(entries[evt.data]);
+        var formatted = format(window.envEntries[evt.data]);
         evt.source.postMessage(formatted, '*');
       }
 

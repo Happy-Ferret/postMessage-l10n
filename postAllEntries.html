@@ -3,12 +3,18 @@
     <meta charset="utf-8">
     <title>postAllEntries</title>
 
-    <script src="locales/entries.js"></script>
+    <script src="locales/ast.js"></script>
+    <script src="lib/entry.js"></script>
 
     <script>
 
+      window.envEntries = Object.create(null);
+      for (var i = 0, node; node = ast[i]; i++) {
+        window.envEntries[node.$i] = createEntry(node, 'en-US', 'app');
+      }
+
       function receive(evt) {
-        evt.source.postMessage(entries, '*');
+        evt.source.postMessage(window.envEntries, '*');
       }
 
       window.addEventListener('message', receive);
