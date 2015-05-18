@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>postMessage</title>
+
+    <script src="locales/entries.js"></script>
+    <script src="lib/resolver.js"></script>
+
+    <script>
+
+      function receive(evt) {
+        var formatted = format(entries[evt.data]);
+        evt.source.postMessage(formatted, '*');
+      }
+
+      window.addEventListener('message', receive);
+
+    </script>
+  </head>
+
+  <body>
+    <p>Send each formatted entity individually</p>
+    <iframe height="500" src="views/postFormattedEntity.html"/>
+  </body>
+</html>

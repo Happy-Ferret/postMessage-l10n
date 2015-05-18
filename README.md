@@ -1,13 +1,17 @@
-postMessage peformance
+postMessage performance
 ======================
 
 A collection of performance tests for using `window.postMessage` in the next 
 iteration of the l20n.js API.
 
+##postFormattedEntity
+
+Entries are created in the parent.  The view asks for an resolved entity which 
+is formatted in the parent.
 
 ##postEachEntry
 
-Entires are created in the parent.  The view asks for each entry individually.
+Entries are created in the parent.  The view asks for each entry individually.
 
 ##postAllEntries
 
