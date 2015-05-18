@@ -1,6 +1,6 @@
 ---
 title: postMessage performance
-author: Staś Małolepszy <stas@mozilla.com>
+author: Staś Małolepszy
 ---
 
 postMessage performance
@@ -26,7 +26,3 @@ next iteration of the l20n.js API.
 [postEachEntry]: postEachEntry.html
 [postAllEntries]: postAllEntries.html
 [postAST]: postAST.html
-
-See screenshots in [profiles/][] for example output.
-
-[profiles/]: https://github.com/stasm/postMessage-l10n/tree/master/profiles
