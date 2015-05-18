@@ -22,3 +22,7 @@ stores them locally.
 
 Only the raw AST is stored in the parent.  The view asks once for the AST and 
 creates entries out of it.
+
+See screenshots in [profiles/][] for example output.
+
+[profiles/]: https://github.com/stasm/postMessage-l10n/tree/master/profiles
