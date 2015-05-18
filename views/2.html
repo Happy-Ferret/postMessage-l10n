@@ -12,12 +12,11 @@
       var target;
       var begin;
 
-      var entries;
 
       function receive(evt) {
-        entries = evt.data;
+        window.viewEntries = evt.data;
         for (var i = 0; i < len; i++) {
-          target.textContent = format(entries[keys[i]]);
+          target.textContent = format(window.viewEntries[keys[i]]);
         }
         stop();
       }

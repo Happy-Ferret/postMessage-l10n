@@ -12,14 +12,15 @@
       var target;
       var begin;
 
-      var entries = Object.create(null);
+      window.viewEntries = Object.create(null);
 
       function receive(evt) {
+        //window.viewAST = evt.data;
         for (var i = 0, node; node = evt.data[i]; i++) {
-          entries[node.$i] = createEntry(node, 'en-US', 'app');
+          window.viewEntries[node.$i] = createEntry(node, 'en-US', 'app');
         }
         for (var i = 0; i < len; i++) {
-          target.textContent = format(entries[keys[i]]);
+          target.textContent = format(window.viewEntries[keys[i]]);
         }
         stop();
       }
